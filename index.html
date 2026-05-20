@@ -7,17 +7,14 @@
 
     <title>ZUKU Ramen Bar</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon-ramen.svg">
     <link rel="icon" type="image/png" href="favicon-ramen.png">
     <link rel="apple-touch-icon" href="favicon-ramen.svg">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/tooplate-antique-cafe.css">
@@ -79,6 +76,53 @@
         .contact-btn:hover { background: rgba(201,168,76,0.15); }
         .contact-footer { max-width: 960px; margin: 48px auto 0; border-top: 1px solid rgba(201,168,76,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: rgba(255,255,255,0.4); font-size: 13px; }
         .contact-footer a { color: #c9a84c; text-decoration: none; }
+
+        /* ==================== BAGIAN YANG SAYA TAMBAHKAN/EDIT ==================== */
+        #tm-nav ul {
+            display: flex !important;
+            flex-direction: row !important;  /* Memaksa menu berjejer horizontal */
+            justify-content: flex-end;      /* Menggeser deretan menu ke kanan */
+            list-style-type: none !important;/* Memastikan titik poin hilang */
+            margin: 0;
+            padding: 0px 20px;
+        }
+        #tm-nav ul li {
+            display: inline-block !important;
+            margin-bottom: 0 !important;
+            margin-left: 10px;               /* Mengatur jarak antar menu */
+        }
+        #tm-nav ul li a {
+            color: #c9a84c !important;       /* Mengubah warna teks link menjadi emas */
+            font-size: 16px;                 /* Ukuran teks menu agar lebih ideal */
+            text-decoration: none !important;/* Menghilangkan garis bawah biru */
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        #tm-nav ul li a:hover {
+            color: #ffffff !important;       /* Berubah jadi putih pas di-hover kursor */
+        }
+        @media (max-width: 768px) {
+            #tm-nav ul {
+                flex-direction: column !important; /* Kembali vertikal kalau dibuka di HP */
+                background: rgba(26,16,8,0.95);
+                position: absolute;
+                top: 50px;
+                right: 10px;
+                width: 160px;
+                padding: 10px !important;
+                border: 1px solid rgba(201,168,76,0.3);
+                border-radius: 6px;
+            }
+            #tm-nav ul.hidden {
+                display: none !important;   /* Menjaga fungsi tombol hamburger di HP */
+            }
+            #tm-nav ul li {
+                margin: 8px 0 !important;
+                text-align: right;
+            }
+        }
+        /* ========================================================================= */
+
         @media (max-width: 768px) {
             .menu-grid { grid-template-columns: 1fr; }
             #intro-inner { flex-direction: column; }
@@ -95,13 +139,15 @@
         <nav id="tm-nav" class="fixed w-full">
             <div class="tm-container mx-auto px-2 md:py-6 text-right">
                 <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
-                <ul class="mb-3 md:mb-0 text-2xl font-normal flex justify-end flex-col md:flex-row">
-                    <li class="inline-block mb-4 mx-4"><a href="#intro" class="tm-text-gold py-1 md:py-3 px-4">Intro</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#menu" class="tm-text-gold py-1 md:py-3 px-4">Menu</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#process" class="tm-text-gold py-1 md:py-3 px-4">Process</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#about" class="tm-text-gold py-1 md:py-3 px-4">About</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#contact" class="tm-text-gold py-1 md:py-3 px-4">Contact</a></li>
+                
+                <ul class="text-2xl font-normal">
+                    <li class="inline-block mb-4 mx-4"><a href="#intro" class="py-1 md:py-3 px-4">Intro</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#menu" class="py-1 md:py-3 px-4">Menu</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#process" class="py-1 md:py-3 px-4">Process</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#about" class="py-1 md:py-3 px-4">About</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#contact" class="py-1 md:py-3 px-4">Contact</a></li>
                 </ul>
+                
             </div>
         </nav>
         <div id="intro-inner">
@@ -141,14 +187,14 @@
                     <div style="width:56px; height:3px; background:#c9a84c; margin:0 auto;"></div>
                 </div>
                 <div class="menu-grid">
-                    <div class="menu-card"><img src="img/Shoyu.jpg" alt="Shoyu Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Shoyu Ramen</div><div class="menu-card-desc">Classic soy-based broth with rich savory depth, served with tender toppings and a soft-boiled egg.</div><div class="menu-card-price">S 20K &nbsp;·&nbsp; L 25K</div></div></div>
-                    <div class="menu-card"><img src="img/Miso.jpg" alt="Miso Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Miso Ramen</div><div class="menu-card-desc">Rich fermented soybean broth with a warm, hearty umami flavor that warms you from the inside.</div><div class="menu-card-price">S 17K &nbsp;·&nbsp; L 20.50K</div></div></div>
-                    <div class="menu-card"><img src="img/Shio.webp" alt="Shio Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Shio Ramen</div><div class="menu-card-desc">Light and delicate salt-based broth — clean, pure, and gently refreshing.</div><div class="menu-card-price">M 28.50K &nbsp;·&nbsp; L 30.75K</div></div></div>
-                    <div class="menu-card"><img src="img/Curry.jpg" alt="Curry Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Curry Ramen</div><div class="menu-card-desc">Bold and aromatic curry broth with a gentle spicy kick and a smooth, creamy finish.</div><div class="menu-card-price">M 11.75K &nbsp;·&nbsp; L 14.75K</div></div></div>
-                    <div class="menu-card"><img src="img/Tonkotsu.jpg" alt="Tonkotsu Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Tonkotsu Ramen</div><div class="menu-card-desc">Thick and creamy broth slow-cooked for hours to achieve a silky, rich perfection.</div><div class="menu-card-price">Small 10K &nbsp;·&nbsp; Large 15K</div></div></div>
-                    <div class="menu-card"><img src="img/Tantanmen.jpg" alt="Tantanmen Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Tantanmen Ramen</div><div class="menu-card-desc">Savory sesame broth with seasoned ground topping and chili oil — bold and deeply satisfying.</div><div class="menu-card-price">Small 12.50K &nbsp;·&nbsp; Large 16.50K</div></div></div>
-                    <div class="menu-card"><img src="img/Toripaitan.jpg" alt="Toripaitan Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Toripaitan Ramen</div><div class="menu-card-desc">Thick and velvety broth with a rich, smooth texture and a mild savory taste.</div><div class="menu-card-price">Small 14K &nbsp;·&nbsp; Large 18K</div></div></div>
-                    <div class="menu-card"><img src="img/Abura-Soba.jpg" alt="Abura Soba Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Abura Soba Ramen</div><div class="menu-card-desc">Brothless dry ramen tossed in a savory sauce — rich, chewy, and uniquely satisfying.</div><div class="menu-card-price">Small 10K &nbsp;·&nbsp; Large 15K</div></div></div>
+                    <div class="menu-card"><img src="img/Shoyu.jpg" alt="Shoyu Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Shoyu Ramen</div><div class="menu-card-desc">Classic soy-based broth with rich savory depth, served with tender toppings and a soft-boiled egg.</div><div class="menu-card-price">S 20K  ·  L 25K</div></div></div>
+                    <div class="menu-card"><img src="img/Miso.jpg" alt="Miso Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Miso Ramen</div><div class="menu-card-desc">Rich fermented soybean broth with a warm, hearty umami flavor that warms you from the inside.</div><div class="menu-card-price">S 17K  ·  L 20.50K</div></div></div>
+                    <div class="menu-card"><img src="img/Shio.webp" alt="Shio Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Shio Ramen</div><div class="menu-card-desc">Light and delicate salt-based broth — clean, pure, and gently refreshing.</div><div class="menu-card-price">M 28.50K  ·  L 30.75K</div></div></div>
+                    <div class="menu-card"><img src="img/Curry.jpg" alt="Curry Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Curry Ramen</div><div class="menu-card-desc">Bold and aromatic curry broth with a gentle spicy kick and a smooth, creamy finish.</div><div class="menu-card-price">M 11.75K  ·  L 14.75K</div></div></div>
+                    <div class="menu-card"><img src="img/Tonkotsu.jpg" alt="Tonkotsu Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Tonkotsu Ramen</div><div class="menu-card-desc">Thick and creamy broth slow-cooked for hours to achieve a silky, rich perfection.</div><div class="menu-card-price">Small 10K  ·  Large 15K</div></div></div>
+                    <div class="menu-card"><img src="img/Tantanmen.jpg" alt="Tantanmen Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Tantanmen Ramen</div><div class="menu-card-desc">Savory sesame broth with seasoned ground topping and chili oil — bold and deeply satisfying.</div><div class="menu-card-price">Small 12.50K  ·  Large 16.50K</div></div></div>
+                    <div class="menu-card"><img src="img/Toripaitan.jpg" alt="Toripaitan Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Toripaitan Ramen</div><div class="menu-card-desc">Thick and velvety broth with a rich, smooth texture and a mild savory taste.</div><div class="menu-card-price">Small 14K  ·  Large 18K</div></div></div>
+                    <div class="menu-card"><img src="img/Abura-Soba.jpg" alt="Abura Soba Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Abura Soba Ramen</div><div class="menu-card-desc">Brothless dry ramen tossed in a savory sauce — rich, chewy, and uniquely satisfying.</div><div class="menu-card-price">Small 10K  ·  Large 15K</div></div></div>
                 </div>
             </div>
         </div>
@@ -226,7 +272,7 @@
                             </div>
                             <div>
                                 <div class="contact-profile-name">Zukhruf</div>
-                                <div class="contact-profile-sub">ZUKU Ramen Bar staff &nbsp;·&nbsp; Est. 2026</div>
+                                <div class="contact-profile-sub">ZUKU Ramen Bar staff  ·  Est. 2026</div>
                             </div>
                         </div>
                     </div>
@@ -243,7 +289,7 @@
                                 <select name="topic">
                                     <option value="">Select a topic...</option>
                                     <option>Reservation / Order</option>
-                                    <option>Feedback &amp; Suggestion</option>
+                                    <option>Feedback & Suggestion</option>
                                     <option>Collaboration</option>
                                     <option>Other</option>
                                 </select>
