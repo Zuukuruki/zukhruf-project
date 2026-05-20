@@ -77,8 +77,11 @@
         .contact-footer { max-width: 960px; margin: 48px auto 0; border-top: 1px solid rgba(201,168,76,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: rgba(255,255,255,0.4); font-size: 13px; }
         .contact-footer a { color: #c9a84c; text-decoration: none; }
 
+        .zuku-nav-link:hover { color: #ffffff !important; }
+        @media (max-width: 768px) {
+            .zuku-menu-wrapper { display: none !important; } /* Sembunyikan di HP dulu sebelum kita buat tombol togglenya nanti */
+        }
         
-
         @media (max-width: 768px) {
             .menu-grid { grid-template-columns: 1fr; }
             #intro-inner { flex-direction: column; }
@@ -92,18 +95,18 @@
 </head>
 <body>
     <div id="intro" class="parallax-window" data-parallax="scroll" data-image-src="img/ramen.jpg">
-        <nav id="tm-nav" class="fixed w-full">
-            <div class="tm-container mx-auto px-2 md:py-6 text-right">
-                <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
+        
+        <nav id="zuku-nav-baru" style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(26, 16, 8, 0.9); z-index: 99999; padding: 20px 0; border-bottom: 1px solid rgba(201,168,76,0.2);">
+            <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
+                <a href="#intro" style="color: #ffffff; font-family: 'Kaisei Decol', serif; font-size: 22px; font-weight: bold; text-decoration: none; letter-spacing: 2px;">ZUKU</a>
                 
-                <ul class="text-2xl font-normal">
-                    <li class="inline-block mb-4 mx-4"><a href="#intro" class="py-1 md:py-3 px-4">Intro</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#menu" class="py-1 md:py-3 px-4">Menu</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#process" class="py-1 md:py-3 px-4">Process</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#about" class="py-1 md:py-3 px-4">About</a></li>
-                    <li class="inline-block mb-4 mx-4"><a href="#contact" class="py-1 md:py-3 px-4">Contact</a></li>
-                </ul>
-                
+                <div class="zuku-menu-wrapper" style="display: flex; gap: 30px;">
+                    <a href="#intro" class="zuku-nav-link" style="color: #c9a84c; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 1px; transition: color 0.2s;">Intro</a>
+                    <a href="#menu" class="zuku-nav-link" style="color: #c9a84c; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 1px; transition: color 0.2s;">Menu</a>
+                    <a href="#process" class="zuku-nav-link" style="color: #c9a84c; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 1px; transition: color 0.2s;">Process</a>
+                    <a href="#about" class="zuku-nav-link" style="color: #c9a84c; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 1px; transition: color 0.2s;">About</a>
+                    <a href="#contact" class="zuku-nav-link" style="color: #c9a84c; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 1px; transition: color 0.2s;">Contact</a>
+                </div>
             </div>
         </nav>
         <div id="intro-inner">
@@ -266,24 +269,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
     <script>
-    !function(e){e.fn.singlePageNav=function(t){var n={offset:0,threshold:120,currentClass:"current",changeHash:!1,easing:"swing",speed:400,filter:"",onBeforeStart:function(){},onStart:function(){},onComplete:function(){}};t=e.extend(n,t);var i=this,o=e(window);function r(t){if(t.length){var n=t.attr("href");if("#"===n)return!1;var i=e(n);if(i.length){var r=i.offset().top-t.offset||0;e("html,body").stop(!0,!0).animate({scrollTop:r},{duration:t.speed||400,easing:t.easing||"swing",complete:function(){t.changeHash&&(window.location.hash=n),t.onComplete()}})}}}i.find("a").on("click",function(t){var n=e(this).attr("href");if(n&&"#"!==n&&e(n).length){t.preventDefault();var i={offset:e(this).data("offset")||arguments[0]&&arguments[0].offset||0,speed:arguments[0]&&arguments[0].speed||400,easing:arguments[0]&&arguments[0].easing||"swing",changeHash:arguments[0]&&arguments[0].changeHash||!1,onComplete:arguments[0]&&arguments[0].onComplete||function(){}};r(e.extend({},{attr:n},i))}});var s=function(){var t=o.scrollTop(),n=t+o.height()/2;i.find("a").each(function(){var t=e(this).attr("href");if(t&&"#"!==t){var i=e(t);if(i.length){var o=i.offset().top,r=o+i.outerHeight();n>=o&&n<=r?e(this).addClass(arguments[0]&&arguments[0].currentClass||"current"):e(this).removeClass(arguments[0]&&arguments[0].currentClass||"current")}}})};return o.on("scroll",s),s(),this}}(jQuery);
-    </script>
-    <script>
-        function checkAndShowHideMenu() {
-            if(window.innerWidth < 768) { $("#tm-nav ul").addClass("hidden"); }
-            else { $("#tm-nav ul").removeClass("hidden"); }
-        }
         $(function(){
-            var tmNav = $("#tm-nav");
-            tmNav.singlePageNav();
-            checkAndShowHideMenu();
-            window.addEventListener("resize", checkAndShowHideMenu);
-            $("#menu-toggle").click(function(){ $("#tm-nav ul").toggleClass("hidden"); });
-            $("#tm-nav ul li").click(function(){ if(window.innerWidth < 768) { $("#tm-nav ul").addClass("hidden"); } });
-            $(document).scroll(function() {
-                if($(document).scrollTop() > 100) { tmNav.addClass("scroll"); }
-                else { tmNav.removeClass("scroll"); }
-            });
+            // Menggunakan smooth scroll bawaan browser agar navigasi baru tetap bekerja melompat ke section
             document.querySelectorAll("a[href^='#']").forEach(anchor => {
                 anchor.addEventListener("click", function(e) {
                     e.preventDefault();
