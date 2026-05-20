@@ -77,51 +77,7 @@
         .contact-footer { max-width: 960px; margin: 48px auto 0; border-top: 1px solid rgba(201,168,76,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: rgba(255,255,255,0.4); font-size: 13px; }
         .contact-footer a { color: #c9a84c; text-decoration: none; }
 
-        /* ==================== BAGIAN YANG SAYA TAMBAHKAN/EDIT ==================== */
-        #tm-nav ul {
-            display: flex !important;
-            flex-direction: row !important;  /* Memaksa menu berjejer horizontal */
-            justify-content: flex-end;      /* Menggeser deretan menu ke kanan */
-            list-style-type: none !important;/* Memastikan titik poin hilang */
-            margin: 0;
-            padding: 0px 20px;
-        }
-        #tm-nav ul li {
-            display: inline-block !important;
-            margin-bottom: 0 !important;
-            margin-left: 10px;               /* Mengatur jarak antar menu */
-        }
-        #tm-nav ul li a {
-            color: #c9a84c !important;       /* Mengubah warna teks link menjadi emas */
-            font-size: 16px;                 /* Ukuran teks menu agar lebih ideal */
-            text-decoration: none !important;/* Menghilangkan garis bawah biru */
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        #tm-nav ul li a:hover {
-            color: #ffffff !important;       /* Berubah jadi putih pas di-hover kursor */
-        }
-        @media (max-width: 768px) {
-            #tm-nav ul {
-                flex-direction: column !important; /* Kembali vertikal kalau dibuka di HP */
-                background: rgba(26,16,8,0.95);
-                position: absolute;
-                top: 50px;
-                right: 10px;
-                width: 160px;
-                padding: 10px !important;
-                border: 1px solid rgba(201,168,76,0.3);
-                border-radius: 6px;
-            }
-            #tm-nav ul.hidden {
-                display: none !important;   /* Menjaga fungsi tombol hamburger di HP */
-            }
-            #tm-nav ul li {
-                margin: 8px 0 !important;
-                text-align: right;
-            }
-        }
-        /* ========================================================================= */
+        
 
         @media (max-width: 768px) {
             .menu-grid { grid-template-columns: 1fr; }
