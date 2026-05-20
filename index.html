@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="icon" type="image/svg+xml" href="favicon-ramen.svg">
+<link rel="icon" type="image/png" href="favicon-ramen.png">
+<link rel="apple-touch-icon" href="favicon-ramen.svg">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZUKU Ramen Bar</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍜</text></svg>">
+
+    <!-- lanjut CSS kamu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="css/tooplate-antique-cafe.css">
+    <style>
+        body { font-family: "M PLUS 1", sans-serif; font-weight: 400; }
+        h1, h2, h3, h4, h5, h6 { font-family: "Kaisei Decol", serif; font-weight: 400; }
+        #intro-inner { display: flex; align-items: stretch; background: rgba(0,0,0,0.65); min-height: 100vh; }
+        #intro-left { flex: 1.1; padding: 140px 3rem 80px 2.5rem; border-right: 1px solid rgba(201,168,76,0.35); display: flex; flex-direction: column; justify-content: center; }
+        #intro-right { flex: 1; padding: 140px 3rem 80px 3rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
+        .intro-label { font-size: 11px; letter-spacing: 4px; color: #c9a84c; margin-bottom: 1rem; text-transform: uppercase; }
+        .intro-jp { font-size: 14px; color: rgba(201,168,76,0.5); margin-bottom: 0.5rem; letter-spacing: 3px; }
+        .intro-title { font-size: 72px !important; font-weight: 700 !important; color: #ffffff !important; line-height: 1.0 !important; margin: 0 !important; font-family: "Kaisei Decol", serif !important; }
+        .intro-gold-line { width: 56px; height: 3px; background: #c9a84c; margin-top: 1.8rem; }
+        .intro-desc { color: rgba(255,255,255,0.78); font-size: 15px; line-height: 1.85; margin: 0; }
+        .intro-btn { display: inline-flex; align-items: center; gap: 10px; background: #c9a84c; color: #1a1008 !important; padding: 14px 28px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; width: fit-content; }
+        .intro-stats { display: flex; gap: 2rem; padding-top: 1rem; border-top: 1px solid rgba(201,168,76,0.2); }
+        .intro-stat-num { font-size: 22px; font-weight: 600; color: #c9a84c; font-family: "Kaisei Decol", serif; text-align: center; }
+        .intro-stat-label { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; text-align: center; }
+        .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 960px; margin: 0 auto; }
+        .menu-card { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,168,76,0.25); background: rgba(0,0,0,0.5); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default; }
+        .menu-card:hover { transform: scale(1.035); box-shadow: 0 8px 32px rgba(201,168,76,0.18); border-color: rgba(201,168,76,0.6); }
+        .menu-card-img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .menu-card:hover .menu-card-img { transform: scale(1.05); }
+        .menu-card-body { padding: 1rem 1.25rem 1.25rem; }
+        .menu-card-title { font-family: "Kaisei Decol", serif; font-size: 1.1rem; color: #c9a84c; margin-bottom: 0.35rem; }
+        .menu-card-desc { color: rgba(255,255,255,0.55); font-size: 0.78rem; line-height: 1.6; margin-bottom: 0.75rem; }
+        .menu-card-price { font-size: 0.85rem; color: rgba(255,255,255,0.85); font-weight: 300; }
+        #contact-overlay { background: rgba(0,0,0,0.72); min-height: 100vh; padding: 80px 1.5rem 120px; }
+        .contact-inner { max-width: 960px; margin: 0 auto; }
+        .contact-header { text-align: center; margin-bottom: 52px; }
+        .contact-label { font-size: 11px; letter-spacing: 4px; color: #c9a84c; text-transform: uppercase; margin-bottom: 10px; }
+        .contact-title { font-family: "Kaisei Decol", serif; font-size: 2.6rem; color: #fff; margin: 0 0 14px; font-weight: 400; }
+        .contact-divider { width: 52px; height: 3px; background: #c9a84c; margin: 0 auto; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 28px; align-items: stretch; }
+        .contact-info { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); border-radius: 12px; padding: 36px 28px; display: flex; flex-direction: column; }
+        .contact-info-title { font-family: "Kaisei Decol", serif; font-size: 1.1rem; color: #c9a84c; margin: 0 0 20px; letter-spacing: 1px; }
+        .contact-info-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6; }
+        .contact-info-row i { color: #c9a84c; margin-top: 2px; flex-shrink: 0; }
+        .contact-map-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; margin-bottom: 28px; background: #c9a84c; color: #1a1008; padding: 11px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; width: fit-content; transition: opacity 0.2s; }
+        .contact-map-btn:hover { opacity: 0.88; }
+        .contact-sep { border-top: 1px solid rgba(201,168,76,0.18); margin: 0 0 20px; }
+        .contact-profile-label { font-size: 10px; letter-spacing: 3px; color: rgba(201,168,76,0.55); text-transform: uppercase; margin-bottom: 12px; }
+        .contact-profile-card { display: flex; align-items: center; gap: 14px; }
+        .contact-avatar { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(201,168,76,0.5); flex-shrink: 0; background: rgba(201,168,76,0.15); display: flex; align-items: center; justify-content: center; color: #c9a84c; font-family: "Kaisei Decol", serif; font-size: 1.2rem; overflow: hidden; }
+        .contact-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .contact-profile-name { font-size: 0.95rem; color: #fff; font-family: "Kaisei Decol", serif; letter-spacing: 0.5px; }
+        .contact-profile-sub { font-size: 0.75rem; color: rgba(201,168,76,0.6); margin-top: 2px; letter-spacing: 1px; }
+        .contact-form-wrap { background: rgba(0,0,0,0.45); border: 1px solid rgba(201,168,76,0.2); border-radius: 12px; padding: 36px 32px; }
+        .contact-form-title { font-family: "Kaisei Decol", serif; font-size: 1.1rem; color: #c9a84c; margin: 0 0 24px; letter-spacing: 1px; }
+        .contact-field { margin-bottom: 18px; }
+        .contact-field label { display: block; font-size: 10px; letter-spacing: 3px; color: rgba(201,168,76,0.7); text-transform: uppercase; margin-bottom: 7px; }
+        .contact-field input, .contact-field select, .contact-field textarea { width: 100%; background: rgba(255,255,255,0.05); border: none; border-bottom: 1px solid rgba(201,168,76,0.4); color: #fff; font-size: 14px; padding: 8px 0; outline: none; font-family: "M PLUS 1", sans-serif; box-sizing: border-box; transition: border-color 0.2s; }
+        .contact-field select option { background: #1a1008; color: #fff; }
+        .contact-field input:focus, .contact-field textarea:focus, .contact-field select:focus { border-bottom-color: #c9a84c; }
+        .contact-field textarea { resize: vertical; min-height: 90px; }
+        .contact-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .contact-submit { display: flex; justify-content: flex-end; margin-top: 10px; }
+        .contact-btn { background: transparent; border: 1px solid rgba(201,168,76,0.6); color: #c9a84c; padding: 12px 28px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; cursor: pointer; font-family: "M PLUS 1", sans-serif; transition: background 0.2s; }
+        .contact-btn:hover { background: rgba(201,168,76,0.15); }
+        .contact-footer { max-width: 960px; margin: 48px auto 0; border-top: 1px solid rgba(201,168,76,0.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: rgba(255,255,255,0.4); font-size: 13px; }
+        .contact-footer a { color: #c9a84c; text-decoration: none; }
+        @media (max-width: 768px) {
+            .menu-grid { grid-template-columns: 1fr; }
+            #intro-inner { flex-direction: column; }
+            #intro-left { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.35); padding: 120px 1.5rem 2rem; justify-content: flex-start; }
+            #intro-right { padding: 2rem 1.5rem 60px; justify-content: flex-start; }
+            .intro-title { font-size: 48px !important; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-row2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="intro" class="parallax-window" data-parallax="scroll" data-image-src="img/ramen.jpg">
+        <nav id="tm-nav" class="fixed w-full">
+            <div class="tm-container mx-auto px-2 md:py-6 text-right">
+                <button class="md:hidden py-2 px-2" id="menu-toggle"><i class="fas fa-2x fa-bars tm-text-gold"></i></button>
+                <ul class="mb-3 md:mb-0 text-2xl font-normal flex justify-end flex-col md:flex-row">
+                    <li class="inline-block mb-4 mx-4"><a href="#intro" class="tm-text-gold py-1 md:py-3 px-4">Intro</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#menu" class="tm-text-gold py-1 md:py-3 px-4">Menu</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#process" class="tm-text-gold py-1 md:py-3 px-4">Process</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#about" class="tm-text-gold py-1 md:py-3 px-4">About</a></li>
+                    <li class="inline-block mb-4 mx-4"><a href="#contact" class="tm-text-gold py-1 md:py-3 px-4">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="intro-inner">
+            <div id="intro-left">
+                <div class="intro-label">Est. 2026</div>
+                <div class="intro-jp">ラーメン</div>
+                <h1 class="intro-title">ZUKU<br>Ramen<br>Bar</h1>
+                <div class="intro-gold-line"></div>
+            </div>
+            <div id="intro-right">
+                <p class="intro-desc">
+                    This is a Ramen Bar by Zukhruf.<br>
+                    Authentic flavors, crafted with care — from Shoyu to Tonkotsu, every bowl tells a story.<br><br>
+                    If you have any question, please <a href="https://wa.me/+6281329648883" target="_parent" style="color:#c9a84c;">send us a message</a>.
+                </p>
+                <div>
+                    <a href="#menu" class="intro-btn">
+                        <i class="fas fa-coffee"></i>
+                        Explore and find what you prefer
+                    </a>
+                </div>
+                <div class="intro-stats">
+                    <div><div class="intro-stat-num">8</div><div class="intro-stat-label">Ramen</div></div>
+                    <div><div class="intro-stat-num">Fresh</div><div class="intro-stat-label">Every day</div></div>
+                    <div><div class="intro-stat-num">100%</div><div class="intro-stat-label">Homemade</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu" class="parallax-window" data-parallax="scroll" data-image-src="img/ramend.jpg">
+        <div style="background:rgba(0,0,0,0.6); min-height:100vh; padding:80px 1.5rem;">
+            <div style="max-width:1000px; margin:0 auto;">
+                <div class="text-center mb-16">
+                    <div style="font-size:11px; letter-spacing:4px; color:#c9a84c; margin-bottom:1rem; text-transform:uppercase;">What We Serve</div>
+                    <h2 style="font-family:'Kaisei Decol',serif; font-size:2.8rem; color:#ffffff; margin-bottom:1rem;">Our Ramen Menu</h2>
+                    <div style="width:56px; height:3px; background:#c9a84c; margin:0 auto;"></div>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card"><img src="img/Shoyu.jpg" alt="Shoyu Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Shoyu Ramen</div><div class="menu-card-desc">Classic soy-based broth with rich savory depth, served with tender toppings and a soft-boiled egg.</div><div class="menu-card-price">S 20K &nbsp;·&nbsp; L 25K</div></div></div>
+                    <div class="menu-card"><img src="img/Miso.jpg" alt="Miso Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Miso Ramen</div><div class="menu-card-desc">Rich fermented soybean broth with a warm, hearty umami flavor that warms you from the inside.</div><div class="menu-card-price">S 17K &nbsp;·&nbsp; L 20.50K</div></div></div>
+                    <div class="menu-card"><img src="img/Shio.webp" alt="Shio Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Shio Ramen</div><div class="menu-card-desc">Light and delicate salt-based broth — clean, pure, and gently refreshing.</div><div class="menu-card-price">M 28.50K &nbsp;·&nbsp; L 30.75K</div></div></div>
+                    <div class="menu-card"><img src="img/Curry.jpg" alt="Curry Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Curry Ramen</div><div class="menu-card-desc">Bold and aromatic curry broth with a gentle spicy kick and a smooth, creamy finish.</div><div class="menu-card-price">M 11.75K &nbsp;·&nbsp; L 14.75K</div></div></div>
+                    <div class="menu-card"><img src="img/Tonkotsu.jpg" alt="Tonkotsu Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Tonkotsu Ramen</div><div class="menu-card-desc">Thick and creamy broth slow-cooked for hours to achieve a silky, rich perfection.</div><div class="menu-card-price">Small 10K &nbsp;·&nbsp; Large 15K</div></div></div>
+                    <div class="menu-card"><img src="img/Tantanmen.jpg" alt="Tantanmen Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Tantanmen Ramen</div><div class="menu-card-desc">Savory sesame broth with seasoned ground topping and chili oil — bold and deeply satisfying.</div><div class="menu-card-price">Small 12.50K &nbsp;·&nbsp; Large 16.50K</div></div></div>
+                    <div class="menu-card"><img src="img/Toripaitan.jpg" alt="Toripaitan Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Toripaitan Ramen</div><div class="menu-card-desc">Thick and velvety broth with a rich, smooth texture and a mild savory taste.</div><div class="menu-card-price">Small 14K &nbsp;·&nbsp; Large 18K</div></div></div>
+                    <div class="menu-card"><img src="img/Abura-Soba.jpg" alt="Abura Soba Ramen" class="menu-card-img"><div class="menu-card-body"><div class="menu-card-title">Abura Soba Ramen</div><div class="menu-card-desc">Brothless dry ramen tossed in a savory sauce — rich, chewy, and uniquely satisfying.</div><div class="menu-card-price">Small 10K &nbsp;·&nbsp; Large 15K</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="process" style="background:#1a1008; padding: 80px 0;">
+        <div class="container mx-auto tm-container px-4">
+            <div class="text-center mb-16">
+                <h2 style="color:#c9a84c; font-size:2.5rem; font-family:'Kaisei Decol', serif; margin-bottom:1rem;">Our Process</h2>
+                <div style="width:56px; height:3px; background:#c9a84c; margin:0 auto 1.5rem;"></div>
+                <p style="color:rgba(255,255,255,0.75); font-size:1rem; max-width:600px; margin:0 auto; line-height:1.85;">Every bowl of ramen at ZUKU starts long before it reaches your table. We spend hours crafting our broth, carefully selecting fresh ingredients, and perfecting every detail — because great ramen takes time, and you deserve the best.</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:3rem;">
+                <div style="flex:1; min-width:200px; max-width:260px; text-align:center;"><div style="font-size:2.5rem; margin-bottom:1rem;">🍖</div><h3 style="color:#c9a84c; font-family:'Kaisei Decol', serif; font-size:1.2rem; margin-bottom:0.75rem;">The Broth</h3><p style="color:rgba(255,255,255,0.65); font-size:0.9rem; line-height:1.8;">Simmered for 12+ hours with carefully selected bones and aromatics to build a rich, deep flavor.</p></div>
+                <div style="flex:1; min-width:200px; max-width:260px; text-align:center;"><div style="font-size:2.5rem; margin-bottom:1rem;">🌿</div><h3 style="color:#c9a84c; font-family:'Kaisei Decol', serif; font-size:1.2rem; margin-bottom:0.75rem;">Fresh Ingredients</h3><p style="color:rgba(255,255,255,0.65); font-size:0.9rem; line-height:1.8;">We source fresh vegetables and toppings daily to ensure every bowl is vibrant and full of life.</p></div>
+                <div style="flex:1; min-width:200px; max-width:260px; text-align:center;"><div style="font-size:2.5rem; margin-bottom:1rem;">🍜</div><h3 style="color:#c9a84c; font-family:'Kaisei Decol', serif; font-size:1.2rem; margin-bottom:0.75rem;">The Noodles</h3><p style="color:rgba(255,255,255,0.65); font-size:0.9rem; line-height:1.8;">Perfectly cooked to order — springy, smooth, and ready to soak up every drop of our signature broth.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="parallax-window" data-parallax="scroll" data-image-src="img/ramenb.jpg">
+        <div style="background:rgba(0,0,0,0.45); min-height:100vh; display:flex; align-items:center;">
+            <div class="container mx-auto px-6" style="max-width:1100px;">
+                <div style="display:flex; align-items:center; gap:4rem; flex-wrap:wrap;">
+                    <div style="flex:1.2; min-width:280px;">
+                        <div style="font-size:11px; letter-spacing:4px; color:#c9a84c; margin-bottom:1rem; text-transform:uppercase;">Who We Are</div>
+                        <h2 style="font-family:'Kaisei Decol',serif; font-size:2.8rem; color:#ffffff; line-height:1.15; margin:0 0 1.5rem;">About<br>Our Shop</h2>
+                        <div style="width:48px; height:3px; background:#c9a84c; margin-bottom:2rem;"></div>
+                        <p style="color:rgba(255,255,255,0.78); font-size:0.95rem; line-height:1.9; margin-bottom:1.25rem;">Welcome to My Bar — a cozy ramen bar where people can relax and enjoy a warm bowl of fresh ramen with carefully selected ingredients and vegetables. We aim to create a comfortable place where everyone can relieve stress, enjoy good food, and spend quality time with friends or family.</p>
+                        <p style="color:rgba(255,255,255,0.78); font-size:0.95rem; line-height:1.9; margin-bottom:2.5rem;">If you wish to <a href="https://www.blog.agustik.com" target="_parent" style="color:#c9a84c;">support us</a>, please dont forget to give any suggestion or criticism. That would be very helpful. Another way is to tell your friends about my Bar. Thank you.</p>
+                        <a href="#contact" style="display:inline-flex; align-items:center; gap:10px; background:#c9a84c; color:#1a1008; padding:14px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none;"><i class="far fa-comments"></i> Contact Us</a>
+                    </div>
+                    <div style="flex:1; min-width:240px; display:flex; flex-direction:column; align-items:center; position:relative; padding:2rem; background:rgba(0,0,0,0.55); border-radius:8px;">
+                        <div style="font-size:7rem; color:rgba(201,168,76,0.08); font-family:serif; line-height:1; position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap; pointer-events:none;">ラーメン</div>
+                        <div style="border:1px solid rgba(201,168,76,0.3); padding:2.5rem 3rem; text-align:center; position:relative; z-index:1;">
+                            <div style="font-size:3.5rem; font-family:serif; color:rgba(201,168,76,0.6); letter-spacing:6px; margin-bottom:1rem;">拉麺</div>
+                            <div style="width:40px; height:1px; background:#c9a84c; margin:0 auto 1rem;"></div>
+                            <div style="font-size:11px; letter-spacing:3px; color:#c9a84c; text-transform:uppercase;">Ramen</div>
+                            <div style="width:40px; height:1px; background:#c9a84c; margin:1rem auto 0;"></div>
+                        </div>
+                        <div style="margin-top:2rem; text-align:center;">
+                            <div style="font-size:0.75rem; letter-spacing:4px; color:rgba(201,168,76,0.45); text-transform:uppercase;">Est. 2026</div>
+                            <div style="display:flex; align-items:center; gap:0.75rem; margin-top:0.5rem;">
+                                <div style="flex:1; height:1px; background:rgba(201,168,76,0.2);"></div>
+                                <div style="width:6px; height:6px; background:#c9a84c; transform:rotate(45deg);"></div>
+                                <div style="flex:1; height:1px; background:rgba(201,168,76,0.2);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="parallax-window" data-parallax="scroll" data-image-src="img/ramenc.jpg">
+        <div id="contact-overlay">
+            <div class="contact-inner">
+                <div class="contact-header">
+                    <div class="contact-label">Reach Out</div>
+                    <h2 class="contact-title">Find Us & Say Hello</h2>
+                    <div class="contact-divider"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-info-title">Our Location</div>
+                        <div class="contact-info-row"><i class="fas fa-map-marker-alt"></i><span>Jl. Damai Gg. Sunan Ampel<br>Yogyakarta</span></div>
+                        <div class="contact-info-row"><i class="fas fa-phone"></i><span><a href="tel:0882326190176" style="color:rgba(255,255,255,0.75); text-decoration:none;">0882 326 190 176</a></span></div>
+                        <div class="contact-info-row"><i class="fas fa-envelope"></i><span><a href="mailto:zukhrufafikrialfarizi@gmail.com" style="color:rgba(255,255,255,0.75); text-decoration:none; word-break:break-all;">zukhrufafikrialfarizi@gmail.com</a></span></div>
+                        <a href="https://maps.app.goo.gl/kDrFT8PfexGvXhedA" target="_blank" class="contact-map-btn"><i class="fas fa-map-marked-alt"></i> Open Maps</a>
+                        <div class="contact-sep"></div>
+                        <div class="contact-profile-label">Design by</div>
+                        <div class="contact-profile-card">
+                            <div class="contact-avatar">
+                                <img src="img/Manhattan-Cafe-01.jfif" alt="Zukhruf" onerror="this.style.display='none'; this.parentNode.innerHTML='Z';">
+                            </div>
+                            <div>
+                                <div class="contact-profile-name">Zukhruf</div>
+                                <div class="contact-profile-sub">ZUKU Ramen Bar staff &nbsp;·&nbsp; Est. 2026</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrap">
+                        <div class="contact-form-title">Send a Message</div>
+                        <form action="" method="POST">
+                            <div class="contact-row2">
+                                <div class="contact-field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+                                <div class="contact-field"><label>Phone</label><input type="text" name="phone" placeholder="08xx xxxx xxxx"></div>
+                            </div>
+                            <div class="contact-field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+                            <div class="contact-field">
+                                <label>Topic</label>
+                                <select name="topic">
+                                    <option value="">Select a topic...</option>
+                                    <option>Reservation / Order</option>
+                                    <option>Feedback &amp; Suggestion</option>
+                                    <option>Collaboration</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="contact-field"><label>Message</label><textarea name="message" rows="5" placeholder="Tell us anything — your favorite bowl, a suggestion, or just a hello..." required></textarea></div>
+                            <div class="contact-submit"><button type="submit" class="contact-btn">Send Message</button></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="contact-footer">
+                    <span>Copyright 2026 ZUKU Ramen Bar. All rights reserved.</span>
+                    <span>Project: <a href="https://www.blog.agustik.com" target="_parent">Nihongo</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+    <script>
+    !function(e){e.fn.singlePageNav=function(t){var n={offset:0,threshold:120,currentClass:"current",changeHash:!1,easing:"swing",speed:400,filter:"",onBeforeStart:function(){},onStart:function(){},onComplete:function(){}};t=e.extend(n,t);var i=this,o=e(window);function r(t){if(t.length){var n=t.attr("href");if("#"===n)return!1;var i=e(n);if(i.length){var r=i.offset().top-t.offset||0;e("html,body").stop(!0,!0).animate({scrollTop:r},{duration:t.speed||400,easing:t.easing||"swing",complete:function(){t.changeHash&&(window.location.hash=n),t.onComplete()}})}}}i.find("a").on("click",function(t){var n=e(this).attr("href");if(n&&"#"!==n&&e(n).length){t.preventDefault();var i={offset:e(this).data("offset")||arguments[0]&&arguments[0].offset||0,speed:arguments[0]&&arguments[0].speed||400,easing:arguments[0]&&arguments[0].easing||"swing",changeHash:arguments[0]&&arguments[0].changeHash||!1,onComplete:arguments[0]&&arguments[0].onComplete||function(){}};r(e.extend({},{attr:n},i))}});var s=function(){var t=o.scrollTop(),n=t+o.height()/2;i.find("a").each(function(){var t=e(this).attr("href");if(t&&"#"!==t){var i=e(t);if(i.length){var o=i.offset().top,r=o+i.outerHeight();n>=o&&n<=r?e(this).addClass(arguments[0]&&arguments[0].currentClass||"current"):e(this).removeClass(arguments[0]&&arguments[0].currentClass||"current")}}})};return o.on("scroll",s),s(),this}}(jQuery);
+    </script>
+    <script>
+        function checkAndShowHideMenu() {
+            if(window.innerWidth < 768) { $("#tm-nav ul").addClass("hidden"); }
+            else { $("#tm-nav ul").removeClass("hidden"); }
+        }
+        $(function(){
+            var tmNav = $("#tm-nav");
+            tmNav.singlePageNav();
+            checkAndShowHideMenu();
+            window.addEventListener("resize", checkAndShowHideMenu);
+            $("#menu-toggle").click(function(){ $("#tm-nav ul").toggleClass("hidden"); });
+            $("#tm-nav ul li").click(function(){ if(window.innerWidth < 768) { $("#tm-nav ul").addClass("hidden"); } });
+            $(document).scroll(function() {
+                if($(document).scrollTop() > 100) { tmNav.addClass("scroll"); }
+                else { tmNav.removeClass("scroll"); }
+            });
+            document.querySelectorAll("a[href^='#']").forEach(anchor => {
+                anchor.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Gold gradient utama -->
+    <radialGradient id="goldBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1008"/>
+      <stop offset="100%" stop-color="#0d0804"/>
+    </radialGradient>
+
+    <!-- Gold shimmer untuk mangkuk -->
+    <linearGradient id="goldBowl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d060"/>
+      <stop offset="35%" stop-color="#c9a84c"/>
+      <stop offset="70%" stop-color="#a07820"/>
+      <stop offset="100%" stop-color="#c9a84c"/>
+    </linearGradient>
+
+    <!-- Gold rim highlight -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5e080"/>
+      <stop offset="100%" stop-color="#a07820"/>
+    </linearGradient>
+
+    <!-- Broth / soup surface -->
+    <radialGradient id="broth" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#7a5c14" stop-opacity="0.9"/>
+    </radialGradient>
+
+    <!-- Steam gradient -->
+    <linearGradient id="steamGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Shadow bawah mangkuk -->
+    <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Clip path untuk isi mangkuk -->
+    <clipPath id="bowlClip">
+      <ellipse cx="32" cy="40" rx="20" ry="7"/>
+      <path d="M12,40 Q12,58 32,58 Q52,58 52,40 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background bulat hitam -->
+  <circle cx="32" cy="32" r="31" fill="url(#goldBg)"/>
+
+  <!-- Border cincin emas -->
+  <circle cx="32" cy="32" r="31" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#c9a84c" stroke-width="0.4" stroke-opacity="0.4"/>
+
+  <!-- Shadow bawah mangkuk -->
+  <ellipse cx="32" cy="59" rx="16" ry="2.5" fill="url(#shadow)"/>
+
+  <!-- Badan mangkuk (bowl shape) -->
+  <!-- Outer bowl -->
+  <path d="M12,38 Q12,58 32,59 Q52,58 52,38 Z" fill="url(#goldBowl)"/>
+
+  <!-- Rim ellipse atas (tepi mangkuk) -->
+  <ellipse cx="32" cy="38" rx="20" ry="5.5" fill="url(#goldRim)"/>
+
+  <!-- Isi broth / sup -->
+  <ellipse cx="32" cy="38" rx="17.5" ry="4" fill="url(#broth)"/>
+
+  <!-- Inner bowl shadow untuk dimensi -->
+  <path d="M14.5,40 Q14.5,56.5 32,57.5 Q49.5,56.5 49.5,40 Z" fill="#6b3d00" fill-opacity="0.25"/>
+
+  <!-- NOODLE WAVES di atas broth -->
+  <!-- Noodle 1 -->
+  <path d="M19,37.5 Q22,35.5 25,37.5 Q28,39.5 31,37.5 Q34,35.5 37,37.5 Q40,39.5 43,37.5"
+        fill="none" stroke="#f5e080" stroke-width="1.3" stroke-linecap="round" opacity="0.95"/>
+  <!-- Noodle 2 -->
+  <path d="M20,39.5 Q23,37.5 26,39.5 Q29,41.5 32,39.5 Q35,37.5 38,39.5 Q41,41.5 44,39.5"
+        fill="none" stroke="#e8c84a" stroke-width="1.1" stroke-linecap="round" opacity="0.8"/>
+  <!-- Noodle 3 (lebih dalam) -->
+  <path d="M22,41.2 Q25,39.5 28,41.2 Q31,42.8 34,41.2 Q37,39.5 40,41.2"
+        fill="none" stroke="#c9a84c" stroke-width="0.9" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Topping: Naruto / egg circle kecil -->
+  <circle cx="28" cy="38.2" r="2.2" fill="#1a1008" stroke="#f5e080" stroke-width="0.7"/>
+  <circle cx="28" cy="38.2" r="1" fill="#c9a84c"/>
+
+  <!-- Topping: Nori / daun persegi hitam -->
+  <rect x="34" y="36.5" width="3.5" height="2.5" rx="0.4" fill="#0d1a0d" stroke="#c9a84c" stroke-width="0.4" opacity="0.9"/>
+
+  <!-- Chopstick kiri -->
+  <line x1="22" y1="20" x2="27" y2="36" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Chopstick kanan -->
+  <line x1="28" y1="19" x2="30" y2="36" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- STEAM / uap -->
+  <!-- Steam kiri -->
+  <path d="M26,34 Q24,30 26,27 Q28,24 26,21"
+        fill="none" stroke="url(#steamGrad)" stroke-width="1.2"
+        stroke-linecap="round" opacity="0.75"/>
+  <!-- Steam tengah -->
+  <path d="M32,34 Q30,29 32,26 Q34,23 32,20"
+        fill="none" stroke="url(#steamGrad)" stroke-width="1.4"
+        stroke-linecap="round" opacity="0.85"/>
+  <!-- Steam kanan -->
+  <path d="M38,34 Q36,30 38,27 Q40,24 38,21"
+        fill="none" stroke="url(#steamGrad)" stroke-width="1.2"
+        stroke-linecap="round" opacity="0.75"/>
+
+  <!-- Hiasan: bintang kecil di pojok -->
+  <circle cx="9" cy="12" r="1" fill="#c9a84c" opacity="0.5"/>
+  <circle cx="55" cy="12" r="1" fill="#c9a84c" opacity="0.5"/>
+</svg>
